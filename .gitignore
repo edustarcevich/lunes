@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+
+#borrar el asterisco * que crea el entorno para que aparezca en inicializador de git
+
+Lib
+Scripts
+pyvenv.cfg
