@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 # cambio agregado: production
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog8.settings.production')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog8.settings.local')
 
 application = get_wsgi_application()

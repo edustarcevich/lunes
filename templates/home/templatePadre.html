@@ -2,7 +2,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>BLOG8</title>
+	<!---->
+  	<title>{% block title %} Home {% endblock %}</title>
+	<!---->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -61,7 +64,7 @@
 			</form>
 			  <div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/home/" class="nav-link">Home</a></li>
 					<li class="nav-item dropdown">
 				  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
 				  <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -73,7 +76,7 @@
 				</li>
 					<li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-				  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+				  <li class="nav-item"><a href="/contacto/" class="nav-link">Contact</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Quienes somos</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Historia</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Precio Dolar</a></li>
@@ -86,9 +89,15 @@
 		</section>
 
 		<section>
-			<div>
-				campo vacío
+			{% block content %}
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						
+					</div>
+				</div>
 			</div>
+			{% endblock %}
 		</section>
 
 		<footer class="footer-10">
