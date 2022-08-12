@@ -13,15 +13,23 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		
-		<link rel="stylesheet" href='{% static 'css/cssMENU/style.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssMENU/style.css' %}'>
 
 	<!--footer-->
 	
     	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap" rel="stylesheet">
 
-		<link rel="stylesheet" href='{% static 'css/cssFOOTER/ionicons.min.css' %}'>
-		<link rel="stylesheet" href='{% static 'css/cssFOOTER/style.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/ionicons.min.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/style.css' %}'>
+	
+	<!--contact-->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href='{% static 'contact/css/style.css' %}'>
+	<!---->
+	
+	
   </head>
   <body>
 		<section class="ftco-section">
@@ -88,19 +96,13 @@
 	
 		</section>
 
-		<section>
-			{% block content %}
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						
-					</div>
-				</div>
-			</div>
-			{% endblock %}
-		</section>
 
-		<footer class="footer-10">
+		{% block content %}
+			
+		{% endblock %}
+
+		
+		<footer class="footer-10">{% block footer %}
 			<div class="container">
 				<div class="row mb-5 pb-3 no-gutters">
 					<div class="col-md-4 mb-md-0 mb-4 d-flex">
@@ -140,79 +142,40 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-7">
-						<div class="row">
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">About</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Out story</a></li>
-		              <li><a href="#" class="d-block">Awards</a></li>
-		              <li><a href="#" class="d-block">Our Team</a></li>
-		              <li><a href="#" class="d-block">Career</a></li>
-		            </ul>
-							</div>
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">Company</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Our services</a></li>
-		              <li><a href="#" class="d-block">Clients</a></li>
-		              <li><a href="#" class="d-block">Contact</a></li>
-		              <li><a href="#" class="d-block">Press</a></li>
-		            </ul>
-							</div>
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">Resources</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Blog</a></li>
-		              <li><a href="#" class="d-block">Newsletter</a></li>
-		              <li><a href="#" class="d-block">Privacy Policy</a></li>
-		            </ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-5 mb-md-0 mb-4">
-						<h2 class="footer-heading">Subscribe</h2>
-						<form action="#" class="subscribe-form">
-              <div class="form-group d-flex">
-                <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-                <button type="submit" class="form-control submit rounded-right">Subscribe</button>
-              </div>
-              <span class="subheading">Get digital marketing updates in your mailbox</span>
-            </form>
+				
+            
 					</div>
 				</div>
 				<div class="row mt-5 pt-4 border-top">
-          <div class="col-md-6 col-lg-8 mb-md-0 mb-4">
-            <p class="copyright mb-0">
+        <div class="col-md-6 col-lg-8 mb-md-0 mb-4 text-center">
+            <p class="copyright mb-0 text-center">
   Copyright All rights reserved by <a href="Grupo 8 - informatorio" target="_blank">Grupo 8 - informatorio</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				
-			</div>
-			<div class="col d-flex justify-content-end">
-				<div class="social-media">
-				<p class="mb-0 d-flex">
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-				</p>
-			</div>
 		</div>
-			
 		</footer>
+		{% endblock %}
+
 	
 	<!--menu-->
-	<script src= '{% static 'js/jsMENU/jquery.min.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/popper.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/main.js' %}'></script>
+	<script src= '{% static 'home/js/jsMENU/jquery.min.js' %}'></script>
+	<script src= '{% static 'home/js/jsMENU/popper.js' %}'></script>
+	<script src= '{% static 'home/js/jsMENU/bootstrap.min.js' %}'></script>
+	<script src= '{% static 'home/js/jsMENU/main.js' %}'></script>
 	
 	<!--footer-->
-	<script src= '{% static 'js/jsFOOTER/jquery.min.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/popper.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/main.js' %}'></script>
-    
+	<script src= '{% static 'home/js/jsFOOTER/jquery.min.js' %}'></script>
+	<script src= '{% static 'home/js/jsFOOTER/popper.js' %}'></script>
+	<script src= '{% static 'home/js/jsFOOTER/bootstrap.min.js' %}'></script>
+	<script src= '{% static 'home/js/jsFOOTER/main.js' %}'></script>
+
+	<!--contact-->
+	<script src='{% static 'contact/js/jquery.min.js' %}'></script>
+	<script src='{% static 'contact/js/popper.js' %}'></script>
+	<script src='{% static 'contact/js/bootstrap.min.js' %}'></script>
+	<script src='{% static 'contact/js/jquery.validate.min.js' %}'></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src='{% static 'contact/js/google-map.js' %}'></script>
+	<script src='{% static 'contact/js/main.js' %}'></script>
+	
   </body>
 </html>
