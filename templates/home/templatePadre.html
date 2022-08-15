@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	
 	<!--MENU-->
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,15 +24,15 @@
 		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/ionicons.min.css' %}'>
 		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/style.css' %}'>
 	
-	<!--contact-->
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href='{% static 'contact/css/style.css' %}'>
-	<!---->
+	{% block static_contacto %} {% endblock %}
+
+	{% block static_login %} {% endblock %}
+	
 	
 	
   </head>
   <body>
+	
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -84,25 +85,35 @@
 				</li>
 					<li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-				  <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+				  <li class="nav-item"><a href="/contact/" class="nav-link">Contacto</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Quienes somos</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Historia</a></li>
-				  <li class="nav-item"><a href="#" class="nav-link">Iniciar Sesión</a></li>
+				
+				
+
+				{% if user.is_authenticated %}				  
+				<li class="nav-item"><a href="{% url 'logout' %}"  class="nav-link">Cerrar Sesión</a></li>
+				{% else %}
+				<li class="nav-item"><a href="{% url 'login' %}"  class="nav-link">Iniciar Sesión</a></li>
+				{% endif %}
+				 
 				</ul>
 			  </div>
 			</div>
 		  </nav>
 		<!-- END nav -->
-	
-		</section>
 
+		</section>
+		
 
 		{% block content %}
+
 			
 		{% endblock %}
 
 		
-		<footer class="footer-10">{% block footer %}
+		<footer class="footer-10">
+			{% block footer %}
 			<div class="container">
 				<div class="row mb-5 pb-3 no-gutters">
 					<div class="col-md-4 mb-md-0 mb-4 d-flex">
@@ -152,8 +163,9 @@
   Copyright All rights reserved by <a href="Grupo 8 - informatorio" target="_blank">Grupo 8 - informatorio</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 		</div>
-		</footer>
 		{% endblock %}
+		</footer>
+		
 
 	
 	<!--menu-->
@@ -167,15 +179,12 @@
 	<script src= '{% static 'home/js/jsFOOTER/popper.js' %}'></script>
 	<script src= '{% static 'home/js/jsFOOTER/bootstrap.min.js' %}'></script>
 	<script src= '{% static 'home/js/jsFOOTER/main.js' %}'></script>
+	
 
-	<!--contact-->
-	<script src='{% static 'contact/js/jquery.min.js' %}'></script>
-	<script src='{% static 'contact/js/popper.js' %}'></script>
-	<script src='{% static 'contact/js/bootstrap.min.js' %}'></script>
-	<script src='{% static 'contact/js/jquery.validate.min.js' %}'></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src='{% static 'contact/js/google-map.js' %}'></script>
-	<script src='{% static 'contact/js/main.js' %}'></script>
+	{% block javascripts_contact %}{% endblock %}
+
+	{% block javascripts_login %}{% endblock %}
+
 	
   </body>
 </html>

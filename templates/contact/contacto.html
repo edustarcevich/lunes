@@ -1,8 +1,15 @@
 {% extends 'home/templatePadre.html' %}
+{% load static %}
+
+{% block static_contacto %}
+	<!--contact-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href='{% static 'contact/css/style.css' %}'>
+    <!---->
+{% endblock %}
 
 {%block title %} Contactos {%endblock%}
-
-{% block stylos %} {% endblock %}
 
 {% block content %}
 
@@ -123,6 +130,16 @@
 
 {% endblock %}
 
-{% block javascripts %}
+
+
+{% block javascripts_contact %}
+<!--contact-->
+<script src='{% static 'contact/js/jquery.min.js' %}'></script>
+<script src='{% static 'contact/js/popper.js' %}'></script>
+<script src='{% static 'contact/js/bootstrap.min.js' %}'></script>
+<script src='{% static 'contact/js/jquery.validate.min.js' %}'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src='{% static 'contact/js/google-map.js' %}'></script>
+<script src='{% static 'contact/js/main.js' %}'></script>
 {% endblock %}
 
