@@ -3,13 +3,16 @@
 <html lang="en">
   <head>
 	<!---->
-  	<title>{% block title %} Home {% endblock %}</title>
+		<title>
+			{% block title %} 
+				Home 
+			{% endblock %}
+		</title>
 	<!---->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	
 	<!--MENU-->
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,14 +27,19 @@
 		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/ionicons.min.css' %}'>
 		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/style.css' %}'>
 	
-	{% block static_contacto %} {% endblock %}
-
-	{% block static_login %} {% endblock %}
+	<!--Contacto-->
+		{% block static_contacto %} {% endblock %}
+	<!--Login-->
+		{% block static_login %} {% endblock %}
 	
 	
 	
   </head>
   <body>
+	<h1>Welcome grupo8: {{user}}</h1>
+	{% if request.user.is_authenticated %}
+		<li class="nav-item"><a href="{% url 'logout' %}"  class="nav-link">Cerrar Sesión</a></li>
+	{% endif %}
 	
 		<section class="ftco-section">
 			<div class="container">
@@ -88,15 +96,14 @@
 				  <li class="nav-item"><a href="/contact/" class="nav-link">Contacto</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Quienes somos</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Historia</a></li>
-				
-				
-
-				{% if user.is_authenticated %}				  
+				  <li class="nav-item"><a href="{% url 'login' %}"  class="nav-link">Iniciar Sesión</a></li>
+				<!--
+				{% if request.user.is_authenticated %}
 				<li class="nav-item"><a href="{% url 'logout' %}"  class="nav-link">Cerrar Sesión</a></li>
 				{% else %}
 				<li class="nav-item"><a href="{% url 'login' %}"  class="nav-link">Iniciar Sesión</a></li>
 				{% endif %}
-				 
+				 -->
 				</ul>
 			  </div>
 			</div>
@@ -104,13 +111,12 @@
 		<!-- END nav -->
 
 		</section>
+			{% block content %}
+
+				
+			{% endblock %}
+
 		
-
-		{% block content %}
-
-			
-		{% endblock %}
-
 		
 		<footer class="footer-10">
 			{% block footer %}
@@ -169,16 +175,16 @@
 
 	
 	<!--menu-->
-	<script src= '{% static 'home/js/jsMENU/jquery.min.js' %}'></script>
-	<script src= '{% static 'home/js/jsMENU/popper.js' %}'></script>
-	<script src= '{% static 'home/js/jsMENU/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'home/js/jsMENU/main.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/jquery.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/popper.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/bootstrap.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/main.js' %}'></script>
 	
 	<!--footer-->
-	<script src= '{% static 'home/js/jsFOOTER/jquery.min.js' %}'></script>
-	<script src= '{% static 'home/js/jsFOOTER/popper.js' %}'></script>
-	<script src= '{% static 'home/js/jsFOOTER/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'home/js/jsFOOTER/main.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/jquery.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/popper.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/bootstrap.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/main.js' %}'></script>
 	
 
 	{% block javascripts_contact %}{% endblock %}

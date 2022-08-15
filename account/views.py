@@ -38,5 +38,5 @@ def Logout_view (request):
 
     logout (request)
     print ("cerrando sesion")
-    return redirect ("home")
+    return redirect ("login")
     
