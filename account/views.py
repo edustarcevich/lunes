@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 #################################################
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import LoginForms
+from .forms import LoginForms, UserCreationForm
 
 # Create your views here.
 
@@ -39,4 +39,12 @@ def Logout_view (request):
     logout (request)
     print ("cerrando sesion")
     return redirect ("login")
-    
+
+
+def Register_view (request):
+    form = UserCreationForm ()
+    if request.method == "Post":
+        form = UserCreationForm (request.POST)
+        if form.is_valid ():
+            return redirect ("home")
+    return render (request, "account/register_user.html", {"form":form})
