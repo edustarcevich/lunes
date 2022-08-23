@@ -2,7 +2,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>BLOG8</title>
+	<!---->
+		<title>
+			{% block title %} 
+				Home 
+			{% endblock %}
+		</title>
+	<!---->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,17 +17,30 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		
-		<link rel="stylesheet" href='{% static 'css/cssMENU/style.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssMENU/style.css' %}'>
 
 	<!--footer-->
 	
     	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap" rel="stylesheet">
 
-		<link rel="stylesheet" href='{% static 'css/cssFOOTER/ionicons.min.css' %}'>
-		<link rel="stylesheet" href='{% static 'css/cssFOOTER/style.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/ionicons.min.css' %}'>
+		<link rel="stylesheet" href='{% static 'home/css/cssFOOTER/style.css' %}'>
+	
+	<!--Contacto-->
+		{% block static_contacto %} {% endblock %}
+	<!--Login-->
+		{% block static_login %} {% endblock %}
+	
+	
+	
   </head>
   <body>
+	<h1>Welcome grupo8: {{user}}</h1>
+	{% if request.user.is_authenticated %}
+		<li class="nav-item"><a href="{% url 'logout' %}"  class="nav-link">Cerrar Sesión</a></li>
+	{% endif %}
+	
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -61,7 +81,7 @@
 			</form>
 			  <div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+					<li class="nav-item active"><a href="/home/" class="nav-link">Home</a></li>
 					<li class="nav-item dropdown">
 				  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
 				  <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -73,25 +93,33 @@
 				</li>
 					<li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
 					<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-				  <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+				  <li class="nav-item"><a href="/contact/" class="nav-link">Contacto</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Quienes somos</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link">Historia</a></li>
-				  <li class="nav-item"><a href="#" class="nav-link">Precio Dolar</a></li>
+				  <li class="nav-item"><a href="{% url 'login' %}"  class="nav-link">Iniciar Sesión</a></li>
+				<!--
+				{% if request.user.is_authenticated %}
+				<li class="nav-item"><a href="{% url 'logout' %}"  class="nav-link">Cerrar Sesión</a></li>
+				{% else %}
+				<li class="nav-item"><a href="{% url 'login' %}"  class="nav-link">Iniciar Sesión</a></li>
+				{% endif %}
+				 -->
 				</ul>
 			  </div>
 			</div>
 		  </nav>
 		<!-- END nav -->
-	
-		</section>
 
-		<section>
-			<div>
-				campo vacío
-			</div>
 		</section>
+			{% block content %}
 
+				
+			{% endblock %}
+
+		
+		
 		<footer class="footer-10">
+			{% block footer %}
 			<div class="container">
 				<div class="row mb-5 pb-3 no-gutters">
 					<div class="col-md-4 mb-md-0 mb-4 d-flex">
@@ -131,79 +159,38 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-7">
-						<div class="row">
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">About</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Out story</a></li>
-		              <li><a href="#" class="d-block">Awards</a></li>
-		              <li><a href="#" class="d-block">Our Team</a></li>
-		              <li><a href="#" class="d-block">Career</a></li>
-		            </ul>
-							</div>
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">Company</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Our services</a></li>
-		              <li><a href="#" class="d-block">Clients</a></li>
-		              <li><a href="#" class="d-block">Contact</a></li>
-		              <li><a href="#" class="d-block">Press</a></li>
-		            </ul>
-							</div>
-							<div class="col-md-4 mb-md-0 mb-4">
-								<h2 class="footer-heading">Resources</h2>
-								<ul class="list-unstyled">
-		              <li><a href="#" class="d-block">Blog</a></li>
-		              <li><a href="#" class="d-block">Newsletter</a></li>
-		              <li><a href="#" class="d-block">Privacy Policy</a></li>
-		            </ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-5 mb-md-0 mb-4">
-						<h2 class="footer-heading">Subscribe</h2>
-						<form action="#" class="subscribe-form">
-              <div class="form-group d-flex">
-                <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-                <button type="submit" class="form-control submit rounded-right">Subscribe</button>
-              </div>
-              <span class="subheading">Get digital marketing updates in your mailbox</span>
-            </form>
+				
+            
 					</div>
 				</div>
 				<div class="row mt-5 pt-4 border-top">
-          <div class="col-md-6 col-lg-8 mb-md-0 mb-4">
-            <p class="copyright mb-0">
+        <div class="col-md-6 col-lg-8 mb-md-0 mb-4 text-center">
+            <p class="copyright mb-0 text-center">
   Copyright All rights reserved by <a href="Grupo 8 - informatorio" target="_blank">Grupo 8 - informatorio</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				
-			</div>
-			<div class="col d-flex justify-content-end">
-				<div class="social-media">
-				<p class="mb-0 d-flex">
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-					<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-				</p>
-			</div>
 		</div>
-			
+		{% endblock %}
 		</footer>
+		
+
 	
 	<!--menu-->
-	<script src= '{% static 'js/jsMENU/jquery.min.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/popper.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'js/jsMENU/main.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/jquery.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/popper.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/bootstrap.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsMENU/main.js' %}'></script>
 	
 	<!--footer-->
-	<script src= '{% static 'js/jsFOOTER/jquery.min.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/popper.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/bootstrap.min.js' %}'></script>
-	<script src= '{% static 'js/jsFOOTER/main.js' %}'></script>
-    
+		<script src= '{% static 'home/js/jsFOOTER/jquery.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/popper.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/bootstrap.min.js' %}'></script>
+		<script src= '{% static 'home/js/jsFOOTER/main.js' %}'></script>
+	
+
+	{% block javascripts_contact %}{% endblock %}
+
+	{% block javascripts_login %}{% endblock %}
+
+	
   </body>
 </html>

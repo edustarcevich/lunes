@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0m87-#@d6q+6lq6p57h#p6wib7wvh!f5ge-qe*-v10lq1kg3q#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "account",
     "home",
+    "contact",
 ]
 # agregado: "whitenoise.middleware.WhiteNoiseMiddleware", junto pip install whitenoise
+# quitar 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -140,7 +142,7 @@ STATIC_ROOT = BASE_DIR / 'static/' """
     os.path.join(BASE_DIR, 'static'),
 ] """
 MEDIA_URL = "/media/"
-MEDIAROOT = os.path.join (os.path.dirname (BASE_DIR),"media")
+MEDIA_ROOT = os.path.join (os.path.dirname (BASE_DIR),"media")
 
 
 STATIC_URL = 'static/'

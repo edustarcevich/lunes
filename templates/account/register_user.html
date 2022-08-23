@@ -1,0 +1,41 @@
+{% extends "home/templatePadre.html" %}
+
+{%block title %} Iniciar Sesión {%endblock%}
+
+{% load static %}
+
+{% block static_login %}
+    <!--login-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href='{% static 'account/login/css/style.css' %}'>
+{% endblock %}
+
+{% block content %}
+    <h1>Registrarse</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Confirmar</button>
+    </form>
+    
+
+{% endblock %}
+
+
+{% block footer %}
+
+    <p class="copyright mb-0 text-center">
+        Copyright All rights reserved by <a href="Grupo 8 - informatorio" target="_blank">Grupo 8 - informatorio</a>
+    </p>
+
+{% endblock %}
+
+
+{% block javascripts_login %}
+<!--login-->
+<script src='{% static 'account/login/js/jquery.min.js' %}'></script>
+<script src='{% static 'account/login/js/popper.js' %}'></script>
+<script src='{% static 'account/login/js/bootstrap.min.js' %}'></script>
+<script src='{% static 'account/login/js/main.js' %}'></script>
+{% endblock %}
